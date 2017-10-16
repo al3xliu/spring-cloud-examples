@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '1.5.6.RELEASE'
+		springBootVersion = '1.5.2.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -11,20 +11,37 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'spring-boot'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'eureka-service'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
 
 dependencyManagement {
-  imports {
-    mavenBom ':spring-cloud-dependencies:Edgware.BUILD-SNAPSHOT'
-  }
+	imports {
+		mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Camden.SR5'
+	}
 }
 
 dependencies {
-    compile ':spring-cloud-starter-config'
-    compile ':spring-cloud-starter-eureka'
-    compile ':spring-cloud-starter-sidecar'
-}repositories {
-    maven {
-        url 'https://repo.spring.io/libs-snapshot'
-    }
+	compile('org.springframework.cloud:spring-cloud-netflix-sidecar')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+
+eclipse {
+	classpath {
+		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+	}
 }
