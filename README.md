@@ -19,3 +19,11 @@ gradle build
 ```
 mvn package
 ```
+
+## Config Server
+
+### build
+
+```
+mvn package
+```
