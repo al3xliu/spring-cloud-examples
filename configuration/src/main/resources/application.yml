@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          url: https://github.com/al3xliu/spring-cloud-config.git
+          uri: "git@github.com:al3xliu/spring-cloud-config.git"
 
   application:
     name: config-server
