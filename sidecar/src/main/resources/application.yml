@@ -6,6 +6,10 @@ spring:
 sidecar:
   port: 9081
   health-uri: http://localhost:9081/api/v1/health/check
+eureka:
+  instance:
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 # eureka:
 #   client:
 #     serviceUrl:

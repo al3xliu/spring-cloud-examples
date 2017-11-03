@@ -4,6 +4,10 @@
 
 This project keep a record that how we use spring cloud to build microservice in our environments.
 
+Here is the architect:
+
+<center><img src="./2017_11_03_non-jvm-with-spring-cloud.png" width="950px"></center>
+
 ## Eureka
 
 ### build
