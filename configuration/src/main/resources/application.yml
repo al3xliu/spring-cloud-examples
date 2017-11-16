@@ -8,4 +8,10 @@ spring:
           uri: "git@github.com:al3xliu/spring-cloud-config.git"
 
   application:
-    name: config-server
+    name: configserver
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
